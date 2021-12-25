@@ -2,6 +2,6 @@
 
 ## Sample Project
 
-Run the CreateDB.sql file on your instance of SQL Server to create the database and tables I have setup for this project
+On your instance of SQL Server, create a Database (the connection string in code connects to 'VetClinic' db), then run the CreateDB.sql file against the newly created db
 
 On the top level under the project, edit the Config.cs file CONNECTIONSTRING variable if needed
