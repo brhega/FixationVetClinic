@@ -1,0 +1,39 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">All Appointments</h1>
+</div>
+
+
+<table class="table">
+    <!--Table head-->
+    <thead>
+        <tr>
+            <th>Scheduled Date/Time</th>
+            <th>Pet Name</th>
+            <th>Owner Name</th>
+            <th>Owner Contact</th>
+            <th>Reason for Appt.</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+
+    <!--Table contents-->
+    <tbody>
+        @foreach (var item in Model._appointmentList)
+        {
+            <tr>
+                <td>@item.scheduledTime</td>
+                <td>@item.scheduledPet.name</td>
+                <td>@item.scheduledOwner.name</td>
+                <td>@item.scheduledOwner.phoneNumber</td>
+                <td>@item.reason</td>
+                <td><a asp-page="./EditAppointment" asp-route-appointmentID="@item.appointmentID">Edit</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

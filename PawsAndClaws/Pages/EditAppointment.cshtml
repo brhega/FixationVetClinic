@@ -1,0 +1,42 @@
+﻿@page
+@model PawsAndClaws.Pages.EditAppointmentModel
+@{
+    ViewData["Title"] = "Edit Appointment";
+}
+
+<h1>Edit Appointment</h1>
+
+<form method="post">
+    <input asp-for="_appointment.appointmentID" type="hidden" />
+    <input asp-for="_appointment.scheduledOwner.ID" type="hidden" />
+    <input asp-for="_appointment.scheduledPet.ID" type="hidden" />
+    <div class="form-group">
+        <label>Pet Name</label>
+        <input type="text" asp-for="_appointment.scheduledPet.name" />
+        <span asp-validation-for="_appointment.scheduledPet.name"></span>
+    </div>
+    <div class="form-group">
+        <label>Owner Name</label>
+        <input type="text" asp-for="_appointment.scheduledOwner.name" />
+        <span asp-validation-for="_appointment.scheduledOwner.name"></span>
+    </div>
+    <div class="form-group">
+        <label>Owner Phone Number</label>
+        <input type="tel" asp-for="_appointment.scheduledOwner.phoneNumber" pattern="[0-9]{10,13}" />
+        <span asp-validation-for="_appointment.scheduledOwner.phoneNumber"></span>
+    </div>
+    <div class="form-group">
+        <label>Appointment Date</label>
+        <input type="datetime" asp-for="_appointment.scheduledTime" />
+        <span asp-validation-for="_appointment.scheduledTime"></span>
+    </div>
+    <div class="form-group">
+        <label>Reason for Appointment</label>
+        <input type="text" asp-for="_appointment.reason" />
+        <span asp-validation-for="_appointment.reason"></span>
+    </div>
+    <button asp-page-handler="Save">Save</button>
+    <button asp-page-handler="Cancel">Cancel</button>
+    <button asp-page-handler="Delete">Delete Appointment</button>
+</form>
+
